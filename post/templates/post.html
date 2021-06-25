@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<div class="p-4">
+	<br>
+	<h1>Post</h1><br>
+
+	<form>
+		
+		<div class="row">
+			
+				{% for post in post_list %}
+				<div class=col-md-4>
+                    <br>
+
+					        <strong><p>{{ post.name }}</p></strong><hr>
+
+					        <strong>Descripcion: </strong><p>{{ post.desc }}</p>
+
+					        <strong>Info: </strong><p>{{ post.data }}</p>
+
+		                    <p><a href="{% url 'modificar' post.id  %}">Modificar</a></p>
+
+
+					        <p><a href="{% url 'eliminar' post.id  %}">Eliminar</a></p>
+				</div>
+	    		{% endfor %}
+
+		</div><br><br>
+
+			<p><a href="{% url 'agregar' %}">Agregar</a></p>
+
+
+	</form>
+	<br><br><br>
+
+</div>
+
+{% endblock content %}
